@@ -1,0 +1,146 @@
+@background-color: #fff;
+
+@screenMobile: 768px;
+
+body {
+  background-color: @background-color;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+li {
+  list-style-type: decimal;
+}
+
+main {
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  max-width: 1920px;
+
+  @media (max-width: @screenMobile) {
+    padding: 24px 1rem;
+  }
+}
+
+section {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 282px;
+
+  @media (max-width: @screenMobile) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.main-image {
+  width: 729px;
+  height: 690px;
+  content-visibility: auto;
+
+  @media (max-width: @screenMobile) {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 619px;
+
+  @media (max-width: @screenMobile) {
+    width: 100%;
+  }
+}
+
+.main-content__title {
+  line-height: 110%;
+  font-size: 77px;
+  font-weight: 700;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+
+  .modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin-inline: 2rem;
+    border-radius: 50px;
+    max-width: 1270px;
+    width: 100%;
+    height: 652px;
+    position: relative;
+
+    .modal-close {
+      display: flex;
+      flex: none;
+      position: absolute;
+      right: 45px;
+      top: 45px;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 12px;
+    }
+
+    .modal-title {
+      text-align: center;
+    }
+
+    .success-section {
+      display: none;
+      flex-direction: column;
+      gap: 2rem;
+
+      &>* {
+        text-align: center;
+      }
+    }
+  }
+
+  .registration-form {
+    width: 620px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+
+    &:hover,
+    &:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}

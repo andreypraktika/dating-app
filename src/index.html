@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main Page</title>
+</head>
+<body>
+  <main>
+    <section>
+      <img id="image" class="main_image" src="<%= require('./assets/image.png') %>" alt="Main Image" />
+      <div class="main_content">
+        <h1 class="main-content__title">How to participate</h1>
+        <ul>
+          <li>Subscribe to our news</li>
+          <li><button id="openModal">Sign up</button></li>
+          <li>Check your email box</li>
+          <li>Wait till September 22</li>
+        </ul>
+      </div>
+    </section>
+    <div id="auth_modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-close">
+          <span class="close">&times;</span>
+        </div>
+        <form id="registrationForm" class="registration-form">
+          <h2 class="modal-title">To register, enter the mail to which our news is sent and set your password</h2>
+          <span id="emailError" class="error-message"></span>
+          <input placeholder="Example@email.com" type="text" id="email" name="email" />
+          <span id="passwordError" class="error-message"></span>
+          <input placeholder="password" type="password" id="password" name="password" />
+          <button type="submit">Submit</button>
+        </form>
+        <div id="successSection" class="success-section">
+          <h1>Thank you</h1>
+          <p>To complete registration, please check your email</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="bundle.js"></script>
+</body>
+</html>
