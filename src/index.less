@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
 @background-color: #fff;
 
 @screenMobile: 768px;
+@screenDesktop: 1600px;
+@screenDesktopLarge: 1920px;
 
 body {
   background-color: @background-color;
@@ -9,10 +13,7 @@ body {
   overflow-x: hidden;
   width: 100dvw;
   height: 100dvh;
-}
-
-li {
-  list-style-type: decimal;
+  font-family: 'Open Sans', sans-serif;
 }
 
 main {
@@ -22,6 +23,11 @@ main {
   height: 100%;
   width: 100%;
   max-width: 1920px;
+
+  @media (max-width: @screenDesktop) {
+    align-items: center;
+    justify-content: center;
+  }
 
   @media (max-width: @screenMobile) {
     padding: 24px 1rem;
@@ -34,8 +40,13 @@ section {
   align-items: center;
   gap: 282px;
 
-  @media (max-width: @screenMobile) {
+  @media (max-width: @screenDesktop) {
     flex-direction: column;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  @media (max-width: @screenMobile) {
     gap: 20px;
   }
 }
@@ -48,7 +59,7 @@ section {
   @media (max-width: @screenMobile) {
     width: 100%;
     height: auto;
-  }
+  };
 }
 
 .main-content {
@@ -66,6 +77,63 @@ section {
   line-height: 110%;
   font-size: 77px;
   font-weight: 700;
+  margin-bottom: 24px;
+  
+  background: linear-gradient(90deg, #D4208C 0%, #E51726 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  @media (max-width: @screenMobile) {
+    font-size: 35px;
+    text-align: left;
+  }
+}
+
+.main-content__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  & > li {
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 198%;
+
+    @media (max-width: @screenMobile) {
+      font-size: 18px;
+    }
+  }
+}
+
+.button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #D4208C 0%, #E51726 100%);
+  width: 387px;
+  height: 81px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 23px;
+
+  @media (max-width: @screenMobile) {
+    border-radius: 6px;
+    width: 251px;
+    height: 50px;
+    font-size: 14px;
+  }
+}
+
+.modal-button {
+  height: 81px;
+  margin: 0 auto;
+
+  @media (max-width: @screenMobile) {
+    height: 45px;
+  }
 }
 
 .modal {
@@ -94,12 +162,28 @@ section {
     height: 652px;
     position: relative;
 
+    @media (max-width: @screenMobile) {
+      margin-inline: 1rem;
+    }
+
     .modal-close {
       display: flex;
       flex: none;
       position: absolute;
       right: 45px;
       top: 45px;
+    }
+
+    .modal-input {
+      height: 24px;
+      border: 0;
+      border-bottom: 1px solid gray;
+      font-size: 18px;
+      padding-bottom: 6px;
+
+      &::placeholder {
+        text-align: center;
+      }
     }
 
     .error-message {
@@ -109,6 +193,11 @@ section {
 
     .modal-title {
       text-align: center;
+
+      @media (max-width: @screenMobile) {
+        font-size: 18px;
+        font-weight: bold;
+      }
     }
 
     .success-section {
@@ -116,18 +205,23 @@ section {
       flex-direction: column;
       gap: 2rem;
 
-      &>* {
+      & > * {
         text-align: center;
       }
     }
   }
 
   .registration-form {
-    width: 620px;
+    max-width: 620px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     gap: 30px;
+    margin-inline: 2rem;
+
+    @media (max-width: @screenMobile) {
+      margin-inline: 1rem;
+    }
   }
 
   .close {
